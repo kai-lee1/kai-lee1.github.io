@@ -18,12 +18,15 @@
 
 <div class = "list">
 <ul>
-  <li> Are you upset by people who enter without a mask? </li>
+  <li> Aren't you troubling with entering people
+  that doesn't wear mask? </li>
   <br>
   <li> Our program can check if
-  your customer has their mask on or not! </li>
+  your customer has their mask or not! </li>
   <br>
-  <li> All you need to do is set the webcam so that the person's face is in the middle.
+  <li> All you need to do is set the webcam,
+    put the device in front of the door so
+    the person can see
   </li>
 </ul>
 </div>
@@ -34,6 +37,17 @@
 <br>
 
 <div type="button" onclick="init()" class="buttons">Start</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div id="label-container" class="thing"></div>
+<div id="webcam-container" class="thing"></div>
 <script>
       function doSomething () {
         // Disable the button
@@ -46,16 +60,6 @@
         // document.getElementById("myButton").disabled = false;
       }
     </script>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div id="label-container" class="thing"></div>
-<div id="webcam-container" class="thing"></div>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
 
@@ -114,18 +118,18 @@
               //labelContainer.childNodes[i].innerHTML = classPrediction;
           //}
 
-          if (prediction[0].probability.toFixed(2)>=0.9) {
+          if (prediction[0].probability.toFixed(2)>=0.98) {
             labelContainer.childNodes[3].innerHTML = "<h1 style='color:green'>thank you</h1>";
-          } else if (prediction[1].probability.toFixed(2)>=0.9) {
+          } else if (prediction[1].probability.toFixed(2)>=0.98) {
             labelContainer.childNodes[3].innerHTML = "<h1 style='color:red'>Please wear a mask</h1>";
-          } else if (prediction[2].probability.toFixed(2)>=0.9) {
+          } else if (prediction[2].probability.toFixed(2)>=0.98) {
             labelContainer.childNodes[3].innerHTML = "<h1 style='color:orange'>Please wear a mask in proper way</h1>";
           }
-          else {
+            else {
             labelContainer.childNodes[3].innerHTML = "<h1 style='color:black'>Please stand in the middle of the camera</h1>";
           }
-
       }
+
 
 
   </script>
