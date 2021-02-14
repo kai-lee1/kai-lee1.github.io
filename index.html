@@ -109,6 +109,10 @@
           } else if (prediction[2].probability.toFixed(2)>=0.9) {
             labelContainer.childNodes[3].innerHTML = "<h1 style='color:orange'>Please wear a mask in proper way</h1>";
           }
+          else {
+            labelContainer.childNodes[3].innerHTML = "<h1 style='color:black'>Please stand in the middle of the camera</h1>";
+          }
+
       }
 
 
